@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tzoof Rotblit - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0A192F;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid #0A192F; /* Navy border */
+        }
+        .video-container iframe {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 1em; /* Smaller font size */
+        }
+        .video-container:hover .overlay {
+            opacity: 1;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #0A192F;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            width: 80%;
+            height: 80%;
+        }
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .modal-header {
+            position: absolute;
+            top: -40px; /* Move the credits above the video */
+            left: 0;
+            width: 100%; /* Ensure the header matches the modal width */
+            background: rgba(10, 25, 47, 1); /* Fully opaque background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: normal;
+            padding: 10px;
+            box-sizing: border-box; /* Ensure padding is included in width calculation */
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tzoof Rotblit - Portfolio</h1>
+    <div class="portfolio">
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/9QFhSI6Goxg?si=l11n1KgMUPi5LY1a', 'Editor | Music Composer | Mix &amp; Master')">
+            <iframe src="https://www.youtube.com/embed/9QFhSI6Goxg?si=l11n1KgMUPi5LY1a" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor | Music Composer | Mix &amp; Master</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/lOBFeiY1ypw?si=hiSi9I_48qZ4EImS', 'Co Editor | Music Composer')">
+            <iframe src="https://www.youtube.com/embed/lOBFeiY1ypw?si=hiSi9I_48qZ4EImS" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Co Editor | Music Composer</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/lcbIjSi6SiM?si=6zjVVibIO0ILGem7', 'Editor | Music Composer')">
+            <iframe src="https://www.youtube.com/embed/lcbIjSi6SiM?si=6zjVVibIO0ILGem7" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor | Music Composer</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/OcVLuDIZqlA?si=6GkPhu44rfQ9gGce', 'Writer | Editor | Music Composer | Sound Designer')">
+            <iframe src="https://www.youtube.com/embed/OcVLuDIZqlA?si=6GkPhu44rfQ9gGce" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Writer | Editor | Music Composer | Sound Designer</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/_zdO2X9Zt1c?si=_SwxnyEUwg3jbJ7b', 'Editor')">
+            <iframe src="https://www.youtube.com/embed/_zdO2X9Zt1c?si=_SwxnyEUwg3jbJ7b" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/MbpsA5swl6I?si=Hjv5jaMN11QNQ8ds', 'Editor')">
+            <iframe src="https://www.youtube.com/embed/MbpsA5swl6I?si=Hjv5jaMN11QNQ8ds" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/XEGf9f4uwMk?si=DZlZuovNDxIvH0Tn', 'Editor | SFX')">
+            <iframe src="https://www.youtube.com/embed/XEGf9f4uwMk?si=DZlZuovNDxIvH0Tn" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor | SFX</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://www.youtube.com/embed/ZmoSNtDKAvM?si=VYbj9v-FhshC6kH-', 'Editor | SFX')">
+            <iframe src="https://www.youtube.com/embed/ZmoSNtDKAvM?si=VYbj9v-FhshC6kH-" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Editor | SFX</div>
+        </div>
+        <div class="video-container" onclick="openModal('https://open.spotify.com/embed/episode/3Q6durM5GgRMaoAYLuKEpz?utm_source=generator', 'Jingle Composer | Recording &amp; Audio Engineer')">
+            <iframe src="https://open.spotify.com/embed/episode/3Q6durM5GgRMaoAYLuKEpz?utm_source=generator" frameborder="0" allowfullscreen=""></iframe>
+            <div class="overlay">Jingle Composer | Recording &amp; Audio Engineer</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" id="modalCredits">Editor | Music Composer | Mix &amp; Master</div>
+            <span class="close" onclick="closeModal()">×</span>
+            <iframe id="modalIframe" frameborder="0" allowfullscreen="" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal(url, credits) {
+            // Set the iframe URL and credits in the modal
+            document.getElementById('modalIframe').src = url;
+            document.getElementById('modalCredits').innerText = credits;
+
+            // Display the modal
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            // Close the modal
+            document.getElementById('myModal').style.display = 'none';
+            document.getElementById('modalIframe').src = ''; // Stop the media from playing when closing
+        }
+
+        // Close the modal if clicked outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
